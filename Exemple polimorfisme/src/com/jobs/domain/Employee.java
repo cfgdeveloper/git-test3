@@ -22,15 +22,4 @@ public class Employee extends AbsStaffMember {
     totalPaid = paymentRate.pay(salaryPerMonth);
   }
 
-  public String toString() {
-
-    String data = "\n";
-    data += "\nname: " + name;
-    data += "\naddress: " + address;
-    data += "\nphone: " + phone;
-    data += "\nsalario: " + totalPaid;
-
-    return data;
-  }
-
 }

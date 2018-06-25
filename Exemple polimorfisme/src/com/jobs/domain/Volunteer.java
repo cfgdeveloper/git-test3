@@ -14,19 +14,7 @@ public class Volunteer extends AbsStaffMember {
 
   @Override
   public void pay() {
-    // TODO
 
-  }
-
-  public String toString() {
-
-    String data = "\n";
-    data += "\nname: " + name;
-    data += "\naddress: " + address;
-    data += "\nphone: " + phone;
-    data += "\nsalario: " + description;
-
-    return data;
   }
 
 }

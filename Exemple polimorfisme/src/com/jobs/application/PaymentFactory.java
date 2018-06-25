@@ -17,7 +17,7 @@ public class PaymentFactory {
     return new IPaymentRate() {
       @Override
       public double pay(double salaryPerMonth) {
-        return (salaryPerMonth * 0.85);// todo
+        return (salaryPerMonth * 0.85);
       }
     };
   }
@@ -26,7 +26,7 @@ public class PaymentFactory {
     return new IPaymentRate() {
       @Override
       public double pay(double salaryPerMonth) {
-        return (salaryPerMonth * 1.10);// todo
+        return (salaryPerMonth * 1.10);
       }
     };
   }
