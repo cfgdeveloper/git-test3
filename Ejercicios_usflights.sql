@@ -11,12 +11,13 @@ group by Origin;
 
 /* 3. Retard promig d'arribada dels vols, per mesos i segons l'aeroport origen */
 select Origin, colYear, colMonth, avg(ArrDelay) from flights
-group by Origin, colYear, colMonth;
+group by Origin, colYear, colMonth
+order by Origin, colYear, colMonth;
 
 
 /* 4. Mateixa consulta que l'anterior, però mostrant el nom de la ciutat en comptes del codi */
-select City, colYear, colMonth, avg(ArrDelay) from flights, usairports
-where origin = iata
+select City, colYear, colMonth, avg(ArrDelay) from flights
+left join usairports on origin = iata
 group by Origin, colYear, colMonth;
 
 
@@ -29,7 +30,7 @@ order by 2 desc;
 
 
 /* 6. Identificador dels 10 vols que més kilòmetres han fet */
-select FlightNum, sum(Distance) from flights
+select TailNum, sum(Distance) from flights
 group by FlightNum
 order by 2 desc
 limit 10;
