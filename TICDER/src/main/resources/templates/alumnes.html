@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td>Id</td>
+                    <td>Nom</td>
+                    <td>cognom 1</td>
+                    <td>Cognom 2</td>
+                    <td>Direccio</td>
+                    <td>Accions</td>
+                </tr>
+                <tr th:each="alumne: ${alumneList}">
+                    <td th:text="${alumne.id}">Id</td>
+                    <td th:text="${alumne.nom}">Nom</td>
+                    <td th:text="${alumne.cognom1}">Cognom 1</td>
+                    <td th:text="${alumne.cognom2}">Cognom 2</td>
+                    <td th:text="${alumne.direccio}">Direccio</td>
+                    <td><a th:href="'/esborrarAlumne/' + ${alumne.id}">Esborrar</a></td>
+                </tr>
+            </table>
+            
+            <div>
+                <a th:href="'/aparellar/'">Aparellar alumnes</a>
+            </div>
+            
+        </div>
+    </body>
+</html>

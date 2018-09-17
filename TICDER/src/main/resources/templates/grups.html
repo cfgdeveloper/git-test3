@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Grups d'alumnes</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr th:each="grup: ${grups}">
+                    <td th:each="alumne: ${grup}">
+                        <span th:text="${alumne.nom}">Nom</span>
+                        <span th:text="${alumne.cognom1}">Cognom1</span>
+                        <span th:text="${alumne.cognom2}">Cognom2</span>
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+    </body>
+</html>
