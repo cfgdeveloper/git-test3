@@ -28,6 +28,21 @@ public class Alumne {
     @Column(name="DIRECCIO")
     private String direccio;
 
+    
+    public Alumne() {
+    
+    }
+    
+    public Alumne(long id, String nom, String cognom1, String cognom2, String direccio) {
+        this.id = id;
+        this.nom = nom;
+        this.cognom1 = cognom1;
+        this.cognom2 = cognom2;
+        this.direccio = direccio;
+    }
+    
+    
+    
     /**
      * @return the id
      */

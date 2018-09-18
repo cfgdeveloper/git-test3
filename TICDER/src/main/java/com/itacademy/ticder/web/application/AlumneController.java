@@ -57,7 +57,14 @@ public class AlumneController {
     @RequestMapping(value="/aparellar", method=RequestMethod.GET)
     public String agrupaAlumnes(Model model) {
         List<List> grups = this.alumneService.agrupaAlumnes();
-        model.addAttribute("grups", grups);
+        if (grups.size() > 0) {
+            model.addAttribute("grups", grups);
+            model.addAttribute("error", "");
+        }
+        else {
+            model.addAttribute("error", "No hi ha prou alumnes per fer parelles (hi ha 1 o ningú)");
+        }
+        
         return "grups";
     }
 }

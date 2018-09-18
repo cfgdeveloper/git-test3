@@ -11,7 +11,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>
+        <div th:if="${error} != ''">
+                <p th:text="${error}"></a></b></p>
+        </div>
+        <div th:if="${error} == ''">
             <table>
                 <tr th:each="grup: ${grups}">
                     <td th:each="alumne: ${grup}">
@@ -21,7 +24,6 @@ and open the template in the editor.
                     </td>
                 </tr>
             </table>
-            
         </div>
     </body>
 </html>

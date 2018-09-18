@@ -31,12 +31,7 @@ public class AlumneService {
         List<Alumne> alumnesList = new ArrayList<>();
         
         alumnes.forEach(a->{
-            Alumne alumne = new Alumne();
-            alumne.setId(a.getId());
-            alumne.setNom(a.getNom());
-            alumne.setCognom1(a.getCognom1());
-            alumne.setCognom2(a.getCognom2());
-            alumne.setDireccio(a.getDireccio());
+            Alumne alumne = new Alumne(a.getId(), a.getNom(), a.getCognom1(), a.getCognom2(), a.getDireccio());
             alumnesList.add(alumne);
         });
         Collections.shuffle(alumnesList);
@@ -70,30 +65,33 @@ public class AlumneService {
         //(tal i com esta fet ara, petaria).
         int numAlumnes = alumnesList.size();
         
-        if (numAlumnes == 1) {
-            
+        if (numAlumnes <= 1) {
         }
         else if (numAlumnes % 2 == 0) {
             //num d'alumnes parell, fer grups de 2
-            for (int i = 0; i < alumnesList.size(); i++) {
-                List<Alumne> grup = new ArrayList<>();
-                grup.add(alumnesList.get(i++));
-                grup.add(alumnesList.get(i));
-                grups.add(grup);
-            }
+            creaParelles(alumnesList, grups, 0);
         }
         else {
             //num d'alumnes imparell, fer grups de 2 i l'ultim de 3
-            for (int i = 0; i < alumnesList.size()-1; i++) {
-                List<Alumne> grup = new ArrayList<>();
-                grup.add(alumnesList.get(i++));
-                grup.add(alumnesList.get(i));
-                grups.add(grup);
-            }
+            creaParelles(alumnesList, grups, 1);
             //afegim l'ultim, que ens queda desparellat
             grups.get(grups.size()-1).add(alumnesList.get(alumnesList.size()-1));
         }
         
         return grups;
+    }
+    
+    /*
+        LastItem indica fins a on ha d'arribar el bucle (això és perquè, si el num
+        d'alumnes és parell, el 'for' ha d'arribar fins al final de 'alumnesList.size',
+        però si no ho és, ha d'arribar fins 'alumnesList.size - 1')
+    */
+    public void creaParelles(List<Alumne> alumnesList, List<List> grups, int lastItem) {
+        for (int i = 0; i < alumnesList.size() - lastItem; i++) {
+                List<Alumne> grup = new ArrayList<>();
+                grup.add(alumnesList.get(i++));
+                grup.add(alumnesList.get(i));
+                grups.add(grup);
+            }
     }
 }
