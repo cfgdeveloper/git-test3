@@ -4,26 +4,18 @@ import com.google.gson.annotations.Expose;
 import com.itacademy.domain.Driver;
 import com.itacademy.utilities.NotFoundException;
 
-public class DriverDTO {
+public class DriverDTO extends UserDTO {
 	@Expose
-	private int id;
-	@Expose
-	private String name, driverId, email;
+	private String driverId, email;
 	private String password;
 
 	public DriverDTO(Driver driver) throws NotFoundException {
-		if (driver == null)
-			throw new NotFoundException();
+		super(driver);
 		this.email = driver.getEmail();
-		this.name = driver.getName();
 		this.password = driver.getPassword();
 		this.driverId = driver.getDriverId();
-		this.id = driver.getId();
 	}
 
-	public int getId() {
-		return id;
-	}
 
 	public String getDriverId() {
 		if(driverId == null) return "";
@@ -34,11 +26,7 @@ public class DriverDTO {
 		if(email == null) return "";
 		return email;
 	}
-	
-	public String getName() {
-		if(name == null) return "";
-		return name;
-	}
+
 
 	public String getPassword() {
 		if(password == null) return "";

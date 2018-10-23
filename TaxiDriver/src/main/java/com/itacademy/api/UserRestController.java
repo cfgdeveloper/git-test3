@@ -88,15 +88,17 @@ public class UserRestController {
 		List<CustomerDTO> customers = customerController.listCustomers();
 		//Omplir UserDTO amb customers
 		for (CustomerDTO c: customers) {
-			UserDTO u = new UserDTO(c.getId(),"customer", c.getName(), c.getEmail(), c.getPassword(),c.getDni(),"");
-			users.add(u);
+			/*UserDTO u = new UserDTO(c.getId(),"customer", c.getName(), c.getEmail(), c.getPassword(),c.getDni(),"");
+			users.add(u);*/
+			users.add((UserDTO)c);
 		}
 		
 		List<DriverDTO> drivers = driverController.listDrivers();
 		//Omplir UserDTO amb drivers
 		for (DriverDTO d: drivers) {
-			UserDTO u = new UserDTO(d.getId(),"driver", d.getName(), d.getEmail(), d.getPassword(),"",d.getDriverId());
-			users.add(u);
+			/*UserDTO u = new UserDTO(d.getId(),"driver", d.getName(), d.getEmail(), d.getPassword(),"",d.getDriverId());
+			users.add(u);*/
+			users.add((UserDTO)d);
 		}
 		
 		return toJson(users);
