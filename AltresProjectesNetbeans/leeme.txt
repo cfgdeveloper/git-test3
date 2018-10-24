@@ -1,0 +1,4 @@
+En esta carpeta hay algunos proyectos que no son los de clase, sino proyectos que
+he hecho de manera proactiva basandome en los cursos de Java de Lynda que he ido
+siguiendo y que trataban de temas del Core de Java, como patrones de diseño,
+recursividad, funciones Lambda, etc.
